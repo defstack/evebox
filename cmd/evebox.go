@@ -36,6 +36,7 @@ import (
 	"github.com/jasonish/evebox/core"
 	"github.com/jasonish/evebox/log"
 	"os"
+	"github.com/jasonish/evebox/cmd/agent"
 )
 
 func VersionMain() {
@@ -48,6 +49,7 @@ func Usage() {
 
 Commands:
 	server			Start the EveBox server
+	agent                   Start the EveBox agent
 	version			Print the EveBox version
 	esimport		Run the Elastic Search Eve import tool
 	evereader		Run the Eve log reader tool
@@ -66,6 +68,9 @@ func main() {
 			return
 		case "esimport":
 			esimport.Main(os.Args[1:])
+			return
+		case "agent":
+			agent.Main(os.Args[1:])
 			return
 		case "evereader":
 			evereader.Main(os.Args[1:])
